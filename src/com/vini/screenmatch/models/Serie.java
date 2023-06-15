@@ -1,10 +1,19 @@
 package com.vini.screenmatch.models;
 
 public class Serie extends Titulo {
+
+    public Serie(String nome, int anoLancamento, int temporadas, int episodiosPorTemporasda) {
+        super(nome, anoLancamento);
+        this.setTemporadas(temporadas);
+        this.setEpisodiosPorTemporada(episodiosPorTemporasda);
+    }
+
     private int temporadas;
     private boolean ativa;
     private int episodiosPorTemporasda;
     private int minutosPorEpisodio;
+
+
 
     public int getTemporadas() {
         return temporadas;
@@ -26,7 +35,7 @@ public class Serie extends Titulo {
         return episodiosPorTemporasda;
     }
 
-    public void setEpisodiosPorTemporasda(int episodiosPorTemporasda) {
+    public void setEpisodiosPorTemporada(int episodiosPorTemporasda) {
         this.episodiosPorTemporasda = episodiosPorTemporasda;
     }
 

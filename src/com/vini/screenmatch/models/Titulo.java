@@ -1,7 +1,12 @@
 package com.vini.screenmatch.models;
 
 // Na herança, essa classe vai representar um título no cartaz
-public abstract class Titulo {
+public abstract class Titulo implements Comparable<Titulo> {
+
+    public Titulo(String nome, int anoLancamento){
+        this.setNome(nome);
+        this.setAnoLancamento(anoLancamento);
+    }
 
     private String nome;
     private int anoLancamento;
@@ -31,11 +36,6 @@ public abstract class Titulo {
         return this.totalDeAvaliacoes;
     }
 
-    public void exibeFichaTecnica() {
-        System.out.println("Nome do filme: " + this.nome);
-        System.out.println("Ano de lançamento: " + this.anoLancamento);
-    }
-
     public String getNome() {
         return nome;
     }
@@ -61,4 +61,8 @@ public abstract class Titulo {
         return somaDeAvaliacoes / totalDeAvaliacoes;
     }
 
+    @Override
+    public int compareTo(Titulo t) {
+        return this.getNome().compareTo(t.getNome());
+    }
 }
