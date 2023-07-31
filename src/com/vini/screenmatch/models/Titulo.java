@@ -1,5 +1,7 @@
 package com.vini.screenmatch.models;
 
+import com.google.gson.annotations.SerializedName;
+
 // Na herança, essa classe vai representar um título no cartaz
 public abstract class Titulo implements Comparable<Titulo> {
 
@@ -7,8 +9,9 @@ public abstract class Titulo implements Comparable<Titulo> {
         this.setNome(nome);
         this.setAnoLancamento(anoLancamento);
     }
-
+    @SerializedName("Title")
     private String nome;
+    @SerializedName("Year")
     private int anoLancamento;
     private boolean incluidoNoPlano;
     private int duracaoEmMinutos;
@@ -64,5 +67,11 @@ public abstract class Titulo implements Comparable<Titulo> {
     @Override
     public int compareTo(Titulo t) {
         return this.getNome().compareTo(t.getNome());
+    }
+
+
+    @Override
+    public String toString() {
+        return "Nome: " + this.getNome() + "\nAno de lançamento: " + this.getAnoLancamento();
     }
 }
